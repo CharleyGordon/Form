@@ -64,7 +64,12 @@ img {
   height: 100%;
   object-fit: cover;
 }
+a {
+  font-weight: 700;
+  color: cornflowerblue;
 
+  text-decoration: inherit;
+}
 button[type="submit"] {
   font-size: 1.6rem;
   justify-self: center;
@@ -93,6 +98,9 @@ form {
 h1 {
   text-transform: capitalize;
   font-size: 2.4em;
+}
+.credit {
+  place-self: end center;
 }
 .cta,
 [class*="input"]:not(:focus-within) > label {
