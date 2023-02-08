@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Start doing!</title>
+  </head>
+  <body data-grid>
+    <article class="sign-form" data-grid>
+      <aside class="deco" data-subdisplay data-relative>
+        <div class="cta" data-absolute>
+          <h1>don't wait!</h1>
+          <p>sign in now to start your frontend journey!</p>
+        </div>
+        <img src="jackson-sophat-_t-l5FFH8VA-unsplash.jpg" alt="" />
+      </aside>
+      <form action="" data-subdisplay data-align-items="center">
+        <fieldset class="register" data-grid>
+          <legend></legend>
+          <div class="nickname-input">
+            <input
+              type="text"
+              required
+              name="nickname"
+              id="nickname"
+              autocomplete="nickname"
+            /><label for="nickname"
+              >Nickname: <ins class="indicator"></ins
+            ></label>
+          </div>
+          <div class="email-input">
+            <input
+              type="email"
+              required
+              name="email"
+              id="email"
+              autocomplete="email"
+              placeholder="e.g. example@gmail.com"
+            />
+            <label for="email">Email: <ins class="indicator"></ins></label>
+          </div>
+          <div class="phone-input">
+            <input type="tel" name="phone-number" id="phone-number" />
+            <label for="phone-number"
+              >Phone number: <ins class="indicator"></ins
+            ></label>
+          </div>
+          <div class="password-check" data-grid data-subgap data-subdisplay>
+            <div class="password-input" data-grid>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                required
+              /><label for="password"
+                >Password: <ins class="indicator"></ins
+              ></label>
+            </div>
+            <div class="password-retype-input" data-grid>
+              <input type="password" id="password-check" required />
+              <label for="password-check"
+                >Retype password: <ins class="indicator"></ins
+              ></label>
+            </div>
+          </div>
+
+          <button type="submit">create account</button>
+        </fieldset>
+      </form>
+    </article>
+  </body>
+</html>

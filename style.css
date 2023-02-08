@@ -1,0 +1,270 @@
+:root {
+  font-family: system-ui;
+  --color-main: hsl(240, 100%, 100%);
+  --accent-text: 0.5px 0 var(--color-main), -0.5px 0 var(--color-main);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+[data-grid] {
+  display: grid;
+}
+[data-even-columns] {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+[data-flex] {
+  display: flex;
+}
+[data-justify-content="center"] {
+  justify-content: center;
+}
+[data-justify-content="space-between"] {
+  justify-content: space-between;
+}
+[data-justify-items="center"] {
+  justify-items: center;
+}
+[data-align-content="center"] {
+  align-content: center;
+}
+[data-align-items="center"] {
+  align-items: center;
+}
+[data-relative] {
+  position: relative;
+}
+[data-absolute] {
+  position: absolute;
+}
+[data-subgap] {
+  gap: var(--gap);
+}
+[data-subdisplay] {
+  display: inherit;
+}
+/* actual styling */
+
+html,
+body,
+.register input {
+  width: 100%;
+}
+html,
+body {
+  min-height: 100vh;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button[type="submit"] {
+  font-size: 1.6rem;
+  justify-self: center;
+
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: hsl(356, 81%, 62%);
+}
+button:is(:focus, :hover) {
+  --color-main: hsl(350, 69%, 52%);
+  border-radius: 2vmax;
+  display: block;
+  outline: 0.25rem solid var(--color-main);
+}
+body {
+  background-color: #e72b39;
+}
+form {
+  align-items: start;
+}
+[type="submit"] {
+  width: fit-content;
+  text-transform: uppercase;
+  padding: 0.4em;
+}
+h1 {
+  text-transform: capitalize;
+  font-size: 2.4em;
+}
+.cta,
+[class*="input"]:not(:focus-within) > label {
+  text-shadow: var(--accent-text);
+}
+.cta {
+  width: 100%;
+  place-self: center;
+  background-color: hsla(0, 24%, 22%, 0.681);
+  text-align: center;
+  color: white;
+  mix-blend-mode: multiply;
+}
+.sign-form {
+  height: 100%;
+}
+.nickname {
+  border: 3px dotted black;
+}
+.register {
+  --transitions: 0.5s;
+  --gap: 1rem;
+  gap: var(--gap);
+  /* margin: 0 auto; */
+  padding: 1rem 2rem;
+  border: none;
+}
+.register * {
+  transition: var(--transitions);
+}
+
+.password-check[data-state="invalid"] {
+  padding: calc(var(--gap) / 2) calc(var(--gap) / 4);
+  outline: 3px solid red;
+  background: #555;
+}
+legend {
+  justify-self: center;
+}
+[class*="input"] {
+  position: relative;
+}
+[class*="input"]:focus-within input {
+  border-radius: 0.75vmax;
+}
+[class*="input"]:not(:focus-within) > label {
+  translate: 0 50%;
+  color: transparent;
+  font-size: 1em;
+}
+
+[class*="input"]:not(:focus-within) input::placeholder {
+  opacity: 0;
+}
+
+input,
+label,
+button[type="submit"] {
+  color: var(--color-main);
+}
+input,
+label {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+input {
+  --offset: -10vmax;
+  --outline: #999;
+  background-color: hsl(356, 81%, 62%);
+  padding-block: 1.2rem;
+  text-indent: 0.5rem;
+  outline: 2px dashed var(--outline);
+  outline-offset: var(--offset);
+}
+input:focus {
+  --offset: 0.5px;
+}
+input:focus ~ label .indicator {
+  opacity: 0;
+  position: absolute;
+}
+input:not(:focus) {
+  text-indent: -100%;
+}
+input:invalid {
+  outline-color: rgb(97, 32, 32);
+}
+:where(input ~ label .indicator) {
+  color: green;
+  text-shadow: -0.5px 0 yellowgreen, -0.5px 0 black;
+}
+input:invalid ~ label {
+  color: rgb(180, 21, 21);
+}
+input:invalid ~ label .indicator {
+  font-style: oblique;
+  text-decoration: line-through;
+  text-shadow: -0.5px 0 firebrick, -0.5px 0 black;
+}
+
+input:required ~ label::before {
+  content: "*";
+  color: orangered;
+  font-weight: 700;
+}
+label {
+  font-size: 0.75em;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  text-indent: 2ch;
+}
+
+.indicator {
+  --clip: 13ch;
+  font-family: monospace;
+  color: inherit;
+  display: inline-block;
+  max-width: var(--clip);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.indicator::before,
+.indicator::after {
+  color: aqua;
+  text-shadow: none;
+  font-family: cursive;
+}
+.indicator:not(:empty)::before {
+  content: "<";
+}
+.indicator:not(:empty):after {
+  content: "/>";
+}
+@media (max-width: 800px) {
+  aside {
+    height: 100vh;
+  }
+  /* ins {
+    position: absolute;
+  } */
+}
+@media (min-width: 800px) {
+  .sign-form {
+    grid-template-columns: 1fr 2fr;
+  }
+  .register {
+    grid-template-areas:
+      "n ps"
+      "e ps"
+      "ph ps"
+      "btn btn";
+  }
+  .nickname-input {
+    grid-area: n;
+  }
+  .email-input {
+    grid-area: e;
+  }
+  .phone-input {
+    grid-area: ph;
+  }
+  .password-check {
+    grid-area: ps;
+  }
+  button[type="submit"] {
+    grid-area: btn;
+  }
+  .indicator {
+    --clip: 25ch;
+  }
+}
